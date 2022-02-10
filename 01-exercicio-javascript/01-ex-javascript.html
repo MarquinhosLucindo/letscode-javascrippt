@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Exercício de Javascript</title>
+</head>
+<body>
+    <script>
+        
+        alert('1 - Digite 4 notas e obtenha a média!')
+        let n1 = parseFloat(prompt('Digite a primeira nota: '))
+        let n2 = parseFloat(prompt('Digite a segunda nota: '))
+        let n3 = parseFloat(prompt('Digite a terceira nota: '))
+        let n4 = parseFloat(prompt('Digite a quarta nota: '))
+        let media = (n1 + n2 + n3 + n4) / 4
+        alert('A média obtida com as 4 notas digitadas foi: '+media.toString())
+        
+        alert('2 - Digite o valor do raio e obtenha a área de um círculo!')
+        let raio = parseFloat(prompt('Digite o valor do raio em mm: '))        
+        let area_ex2 = (raio * raio) * 3.14         
+        alert('O valor da area de um círculo de raio '+ raio.toString()+'mm é: '+area_ex2.toString()+'mm²' )
+        
+        alert('3 - Digite a temperatura em graus Fahrenheit e ela será convertida em graus Celsius!')
+        let f = parseFloat(prompt('Digite a temperatura em °F:'))
+        let c = 5 * ((f-32)/9)
+        c = c.toFixed(2)
+        alert(f.toString() + '°F equivale a ' + c.toString() + '°C.')
+        
+        alert('4 - Digite a base e a altura para o calculo da área e do perímetro!')
+        let b = parseFloat(prompt('Digite o valor da base: '))
+        let a = parseFloat(prompt('Digite o valor da altura: '))
+        let perimetro = a + b + a + b
+        let area_ex4 = b * a
+        alert('Perímetro: ' + perimetro.toString() + 'm \nÁrea: ' + area_ex4.toString() + 'm²')
+        
+
+        alert('5 - Escreva as dimensões do chão da cozinha!')
+        let d1 = parseFloat(prompt('Escreva a primeira medida: '))
+        let d2 = parseFloat(prompt('Escreva a segunda medida: '))
+        let area_ex5 = d1 * d2
+        let cx_az = area_ex5 / 2.5
+        alert('Para cobrir o chão de '+area_ex5.toString()+'m² \nserá preciso '+cx_az.toString()+ ' caixas de azulejo.')
+
+    </script>    
+</body>
+</html>
