@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Exercício Fixação de Javascript</title>
+</head>
+<body>
+    <script>
+        //FUNÇÕES
+        function calcula_media(x, y){
+            return (x + y)/2
+        }
+        
+        function calcula_produto(x, y){
+            return x * y
+        }
+
+        function calcula_media_ponderada(p1, p2, nt_1, nt_2){
+            tot_peso = p1 + p2
+            return ((p1 * nt_1) + (p2 * nt_2)) / tot_peso
+        }
+
+        function calcula_media_ponderadaII(p1, p2, nt_1, nt_2){
+            tot_peso = p1 + p2
+            return (calcula_produto(p1, nt_1) + calcula_produto(p2, nt_2)) / tot_peso
+        }
+
+        function dez_porc(valor){
+            ac = valor*10/100
+            return valor + ac
+        }
+
+        function inss(salario){
+            desc_inss = salario*10/100
+            return desc_inss
+        }
+
+        function fgts(salario){
+            desc_fgts = salario*8/100
+            return desc_fgts
+        }
+
+        function p_saude(desc_p_saude=100){
+            return desc_p_saude
+        }
+        
+        //CÁLCULO DE MÉDIA ARITMÉTICA      
+         
+        alert('1 - Digite dois números inteiros: ')
+        let n1 = parseInt(prompt('Digite o primeiro numero inteiro: '))
+        let n2 = parseInt(prompt('Digite o seungod número inteiro: '))
+        
+        alert('A média é: '+calcula_media(n1, n2)+
+        '\nO produto é: '+calcula_produto(n1, n2))
+        
+        
+        // CÁLCULO DE MÉDIA PONDERADA
+    
+        alert('2 - Cálculo de média ponderada!')
+        let peso_1 = parseInt(prompt('Digite o peso da primeira prova: '))        
+        let peso_2 = parseInt(prompt('Digite o peso da segunda prova: '))
+        let matricula = parseInt(prompt('Digite matrícula do aluno: '))
+        let nota_1 = parseFloat(prompt('Digite o valor da primeira prova: '))
+        let nota_2 = parseFloat(prompt('Digite o valor da segunda prova: '))
+        
+        let media_pond = calcula_media_ponderada(peso_1, peso_2, nota_1, nota_2)
+        let media_arred = Math.round(media_pond)
+        alert('O aluno da matrícula: '+matricula+', teve média '+media_arred)
+
+       // CÁLCULO DE MÉDIA PONDERADA II
+
+        alert('3 - Cálculo de média ponderada II')
+        let peso_3 = parseInt(prompt('Digite o peso da primeira prova: '))        
+        let peso_4 = parseInt(prompt('Digite o peso da segunda prova: '))
+        let matricula_2 = parseInt(prompt('Digite matrícula do aluno: '))
+        let nota_3 = parseFloat(prompt('Digite o valor da primeira prova: '))
+        let nota_4 = parseFloat(prompt('Digite o valor da segunda prova: '))
+        
+        let media_pond_2 = calcula_media_ponderadaII(peso_3, peso_4, nota_3, nota_4)
+        let media_arred_2 = Math.round(media_pond_2)
+        alert('O aluno da matrícula: '+matricula_2+', teve média '+media_arred_2)
+      
+        // CÁLCULO DE MÉDIA PONDERADA DOIS ALUNOS
+
+        alert('4 - Cálculo de média ponderada de dois alunos:')
+        let peso1_al1 = parseInt(prompt('1º Aluno. peso da primeira prova: '))        
+        let peso2_al1 = parseInt(prompt('1º Aluno. peso da segunda prova: '))
+        let matricula_al1 = parseInt(prompt('Digite matrícula do 1º aluno: '))
+        let nota1_al1 = parseFloat(prompt('1º Aluno. valor da primeira prova: '))
+        let nota2_al1 = parseFloat(prompt('1º Aluno. valor da segunda prova: '))
+        
+        let media_pond_al1 = calcula_media_ponderadaII(peso1_al1, peso2_al1, nota1_al1, nota2_al1)//MÉDIA PONDERADA DO ALUNO 1
+        let media_arred_al1 = Math.round(media_pond_al1)// MÉDIA ARREDONDADA DO ALUNO 1
+
+        let peso1_al2 = parseInt(prompt('2º Aluno. peso da primeira prova: '))        
+        let peso2_al2 = parseInt(prompt('2º Aluno. peso da segunda prova: '))
+        let matricula_al2 = parseInt(prompt('Digite matrícula do 2º aluno: '))
+        let nota1_al2 = parseFloat(prompt('2º Aluno. valor da primeira prova: '))
+        let nota2_al2 = parseFloat(prompt('2º Aluno. valor da segunda prova: '))
+        
+        let media_pond_al2 = calcula_media_ponderadaII(peso1_al2, peso2_al2, nota1_al2, nota2_al2)//MÉDIA PONDERADA DO ALUNO 2
+        let media_arred_al2 = Math.round(media_pond_al2)// MÉDIA ARREDONDADA DO ALUNO 2
+        alert('O aluno da matrícula: '+matricula_al1+', teve média '+media_arred_al1+
+        '\nO aluno da matrícula: '+matricula_al2+', teve média '+media_arred_al2)
+        
+        // CÁLCULO DA CONTA COM ACRÉSCIMO DE 10% DO GARÇOM
+       
+        alert('5 - Calcular o valor da conta com acréscimo de 10% do garçom!')
+        let conta = parseFloat(prompt('Digite o valor da conta, R$'))
+        alert('O valor da conta com acréscimo de 10% é R$'+dez_porc(conta).toFixed(2))
+        
+
+         // CÁLCULO DO SALÁRIO COM OS DESCONTOS
+       
+         alert('6 - Calcular o valor salário com descontos de INSS, FGTS e plano de saúde.')
+        let salario_bruto = parseFloat(prompt('Digite o valor do salário bruto R$'))
+        let salario_final = salario_bruto - inss(salario_bruto) - fgts(salario_bruto) - p_saude()
+        alert('O valor do salário bruto: R$'+salario_bruto.toFixed(2)+
+        '\nO valor desconto do INSS: R$'+inss(salario_bruto).toFixed(2)+
+        '\nO valor desconto do FGTS: R$'+fgts(salario_bruto).toFixed(2)+
+        '\nO valor desconto do plano de saúde: R$'+Math.abs(p_saude()).toFixed(2)+
+        '\nO valor final do salário com descontos: R$'+salario_final.toFixed(2)
+        )
+        
+        
+        
+       
+    </script>    
+</body>
+</html>
