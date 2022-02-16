@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Exercício Fixação de Javascript</title>
+</head>
+<body>
+    <script>
+        //FUNÇÕES
+        function calculaMedia(x, y){
+            m =  (x + y)/2
+            return m
+        }
+        
+        function aumentoSalarial(s){
+            if(s <= 280){
+                porc_aumento = 20
+                val_aumento = s*porc_aumento/100
+                novo_sal = s + val_aumento               
+               
+            }else if(s <= 700){
+                porc_aumento = 15
+                val_aumento = s*porc_aumento/100
+                novo_sal = s + val_aumento                
+                
+            }else if(s <= 1500){
+                porc_aumento = 10
+                val_aumento = s*porc_aumento/100
+                novo_sal = s + val_aumento                
+                
+            }
+            else if(s > 1500){
+                porc_aumento = 5
+                val_aumento = s*porc_aumento/100
+                novo_sal = s + val_aumento                
+                
+            }
+            return novo_sal
+        }
+
+        function calcSalario(vh, qh){
+            sal = vh * qh
+            return sal
+        }
+
+        function calcFgts(s){
+            porc_fgts = 11
+            v_fgts = s * porc_fgts /100
+            return v_fgts
+        }
+
+        
+        
+        //CÁLCULO DE MÉDIA COM CONDICIONAL      
+         /*
+        alert('1 - Digite duas notas: ')
+        let n1 = parseFloat(prompt('Digite a primeira nota: '))
+        let n2 = parseFloat(prompt('Digite a segunda nota: '))
+        
+        media = calculaMedia(n1, n2)
+        
+        if(media < 7){
+            alert('Reprovado')
+        } else if (media < 10){
+            alert('Aprovado')
+        }else if (media == 10){
+            alert('Aprovado com Distinção')
+        }else{
+            alert('Média inválida')
+        }
+        
+
+        alert('2 - Aumento salarial: ')
+        let salario_sem_aumento= parseFloat(prompt('Digite Salário bruto: R$'))
+        let salario_com_aumento = aumentoSalarial(salario_sem_aumento)
+        alert('Salario antes do reajuste: R$' + salario_sem_aumento.toFixed(2) + 
+        '\nPorcentagem do reajuste: ' + porc_aumento+'%' + 
+        '\nValor do reajuste: R$'+val_aumento.toFixed(2)+
+        '\nSalário depois do reajuste: R$'+salario_com_aumento.toFixed(2))
+        */
+        alert('3 - Folha de Pagamento: ')
+        let vl_horas = parseFloat(prompt('Informe o valor da hora trabalhada: R$:'))
+        let qt_horas = parseFloat(prompt('Informe a quantidade de  horas trabalhadas: '))
+        salario_bruto = calcSalario(vl_horas, qt_horas)
+        valor_fgts = calcFgts(salario_bruto)
+        alert(`Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
+Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
+Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
+FGTS (${porc_fgts}%)                     :R$${valor_fgts.toFixed(2)}
+        `)
+        
+    </script>    
+</body>
+</html>
+
