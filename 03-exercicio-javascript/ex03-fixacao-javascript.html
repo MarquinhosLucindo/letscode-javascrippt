@@ -45,16 +45,38 @@
             return sal
         }
 
+        function calcIr(s){
+            if(s <= 900){
+                porc_desc_ir = 0
+                val_desc_ir = 0
+            }else if(s <= 1500){
+                porc_desc_ir = 5
+                val_desc_ir = s * porc_desc_ir / 100
+            }else if(s <= 2500){
+                porc_desc_ir = 10
+                val_desc_ir = s * porc_desc_ir / 100
+            }else{
+                porc_desc_ir = 20
+                val_desc_ir = s * porc_desc_ir / 100
+            }
+            return val_desc_ir
+        }
+
         function calcFgts(s){
             porc_fgts = 11
-            v_fgts = s * porc_fgts /100
-            return v_fgts
+            val_fgts = s * porc_fgts /100
+            return val_fgts
+        }
+
+        function calcInss(s){
+            val_inss = s * 10 / 100
+            return val_inss
         }
 
         
         
         //CÁLCULO DE MÉDIA COM CONDICIONAL      
-         /*
+         
         alert('1 - Digite duas notas: ')
         let n1 = parseFloat(prompt('Digite a primeira nota: '))
         let n2 = parseFloat(prompt('Digite a segunda nota: '))
@@ -71,6 +93,7 @@
             alert('Média inválida')
         }
         
+        //CÁLCULO DE AUMENTO SALARIAL
 
         alert('2 - Aumento salarial: ')
         let salario_sem_aumento= parseFloat(prompt('Digite Salário bruto: R$'))
@@ -79,16 +102,26 @@
         '\nPorcentagem do reajuste: ' + porc_aumento+'%' + 
         '\nValor do reajuste: R$'+val_aumento.toFixed(2)+
         '\nSalário depois do reajuste: R$'+salario_com_aumento.toFixed(2))
-        */
+        
+
+        //CÁLCULO DE FOLHA DE PAGAMENTO
         alert('3 - Folha de Pagamento: ')
         let vl_horas = parseFloat(prompt('Informe o valor da hora trabalhada: R$:'))
         let qt_horas = parseFloat(prompt('Informe a quantidade de  horas trabalhadas: '))
+        
         salario_bruto = calcSalario(vl_horas, qt_horas)
-        valor_fgts = calcFgts(salario_bruto)
-        alert(`Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
-Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
-Salário Bruto: (${vl_horas} * ${qt_horas})   :R$${salario_bruto.toFixed(2)}
-FGTS (${porc_fgts}%)                     :R$${valor_fgts.toFixed(2)}
+        valor_ir = calcIr(salario_bruto)
+        valor_inss = calcInss(salario_bruto)
+        valor_fgts = calcFgts(salario_bruto)        
+        tot_desc = valor_ir + valor_inss
+        salario_liquido = salario_bruto - tot_desc
+
+        alert(`Salário Bruto: (${vl_horas} * ${qt_horas})        :R$${salario_bruto.toFixed(2)}
+(-) IR(${porc_desc_ir}%)        :R$${valor_ir.toFixed(2)}
+(-) INSS (10%)        :R$${valor_inss.toFixed(2)}
+FGTS (${porc_fgts}%)                      :R$${valor_fgts.toFixed(2)}
+Total de Descontos:        :R$${tot_desc.toFixed(2)}
+Salário Liquido:        :R$${salario_liquido.toFixed(2)}
         `)
         
     </script>    
