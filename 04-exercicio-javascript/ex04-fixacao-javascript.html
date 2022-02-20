@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>04 Exercício Fixação de Javascript</title>
+</head>
+<body>
+    <form name="calcform" method="post" action="">
+        <fieldset>
+        <legend><span class="text-danger">1 -</span>  Mostar números impares em um intervalo:</legend>
+    
+        <label for="valor1">Digite o valor inicial:</label>
+        <input type="text" name="valor1" id="valor1" class="col-1" />
+    
+        <label for="valor2">Digite o valor final:</label>
+        <input type="text" name="valor2" id="valor2"  class="col-1" />          
+    
+        
+
+        <label for="res">Resposta = </label>
+        
+
+        &nbsp;&nbsp;
+            
+        <input type="button" value="Mostrar" class="btn btn-outline-danger" 
+        onClick="mostraImpares(document.calcform.valor1.value, document.calcform.valor2.value)"/>
+        
+        </fieldset>
+        <div class="at1">
+            
+        </div>
+        <hr class="text-danger">
+    </form>
+    
+    
+    <div >
+
+        <legend><span class="text-warning">2 -</span> Tabuada:</legend>
+        <p>Digite um número para ver a tabuada:</p>
+
+        <input type="text" name="nota1" id="nota1" class="col-1">
+        
+
+        <button class="btn btn-outline-warning" onclick="tabuada()">Tabuada</button>
+
+        <div class="at2">
+            
+        </div>
+        <hr class="text-warning">
+        
+    </div>
+
+    <div >
+
+        <legend><span class="text-primary">3 -</span> Array:</legend>
+        <p>Digite os números do array separados por vírgula. EX: 1, 2, 5, 4, 7 </p>
+
+        <input type="text" name="array" id="array">
+        <button class="btn btn-outline-primary" onclick="maiorNum()">Analisar</button>
+
+        <div class="at3">
+           
+        </div>
+        <hr class="text-primary">
+
+    </div>
+    
+       
+    <script>
+         let at1 = document.querySelector(".at1");
+         let at2 = document.querySelector(".at2");
+         let at3 = document.querySelector(".at3");
+
+         //FUNÇÕES
+
+         function mostraImpares(i, f) {
+             i_d = parseInt(i)
+             f_d = parseInt(f)
+           arr_impar = [] 
+           if (i_d < f_d){
+            while(i_d <= f){
+             if(i_d % 2 == 1){
+                adicionar = arr_impar.push(i_d);
+                //resp_tab = tabuada.push(cont*n)                
+             }  
+             i_d++ ;
+           }
+           }else{
+            while(i_d >= f_d){
+             if(i_d % 2 == 1){
+                adicionar = arr_impar.push(i_d);
+                //resp_tab = tabuada.push(cont*n)                
+             }  
+             i_d-- ;
+           }
+
+           }
+           at1.innerHTML = "<br>O números ímpares entre " + i + " e " + f + " são: " + arr_impar
+           
+           
+          // document.calcform.resp.value = arr_impar;
+       }
+
+       function tabuada() {
+
+            let n1 = document.querySelector("#nota1");
+            n1 = parseFloat(n1.value);
+            cont = 1
+            arr_tab = []
+            while(cont <= 10){
+            adicionar = arr_tab.push(n1*cont);
+            cont++;
+            }
+
+
+            at2.innerHTML = n1 + " X  &nbsp1 = " + arr_tab[0] + "<br>"
+            + n1 + " X  &nbsp2 = " + arr_tab[1] + "<br>"
+            + n1 + " X  &nbsp3 = " + arr_tab[2] + "<br>"
+            + n1 + " X  &nbsp4 = " + arr_tab[3] + "<br>"
+            + n1 + " X  &nbsp5 = " + arr_tab[4] + "<br>"
+            + n1 + " X  &nbsp6 = " + arr_tab[5] + "<br>"
+            + n1 + " X  &nbsp7 = " + arr_tab[6] + "<br>"
+            + n1 + " X  &nbsp8 = " + arr_tab[7] + "<br>"
+            + n1 + " X  &nbsp9 = " + arr_tab[8] + "<br>"
+            + n1 + " X 10 = " + arr_tab[9] 
+
+      }
+
+      function maiorNum() {
+
+        let array = document.querySelector("#array");
+        
+        
+        array_d = [];
+        array_d = array.value
+        array_d = array_d.replace(" ", "")
+        array_d = array_d.split(",")
+        idx = 0
+        maior = 0 
+        menor = 99999999999999999999999999
+        while (idx < array_d.length){
+            array_d[idx] = parseFloat(array_d[idx]);
+            if(maior < array_d[idx]){
+                maior = array_d[idx]
+            }
+            if(menor > array_d[idx]){
+                menor = array_d[idx]
+            }
+                       
+            idx++;
+        }
+
+        
+        //console.log(maior);
+       
+
+        at3.innerHTML = "Analisando o array [" + array_d + "] o maior número é: " + maior + " e o menor número é: " + menor;
+        
+
+     }
+
+       
+        
+    </script> 
+    
+    
+</body>
+</html>
