@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca - Javascript</title>
+    <style>
+       body{
+           font-size:  30pt;
+       }
+    </style>
+</head>
+<body>
+    Jogo da Forca - Projeto Final
+    <hr>
+
+   <script>
+       //FUNÇÃO FORCA
+       function forca(vida){
+           if(vida == 0){
+               resp_forca = (` _______           
+|          O
+|          /|\\
+|           |
+|          / \\
+|     GAME OVER!`)
+     
+           }else if(vida == 1){
+               resp_forca = (` _______           
+|          O
+|          /|\\
+|           |
+|          / 
+|`)
+        
+       }else if(vida == 2){
+               resp_forca = (` _______           
+|          O
+|          /|\\
+|           |
+|          
+|`)
+        
+       }else if(vida == 3){
+               resp_forca = (` _______           
+|          O
+|          /|
+|           |
+|          
+|`)
+        
+       }else if(vida == 4){
+               resp_forca = (` _______           
+|          O
+|           |
+|           |
+|          
+|`)
+        
+       }else if(vida == 5){
+               resp_forca = (` _______           
+|          O
+|           |
+|          
+|          
+|`)
+        
+       }else if(vida == 6){
+               resp_forca = (` _______           
+|          O
+|          
+|          
+|          
+|`)
+        
+       }else if(vida == 7){
+               resp_forca = (` _______           
+|          
+|          
+|          
+|          
+|`)
+        
+       }
+       return resp_forca
+     }
+      ///////FIM FUNÇÃO FORCA//////////
+
+     
+     ///////////////LÓGICA DO JOGO///////////////////
+continuar = 0
+while (continuar != null){ 
+
+    //////////////////LÓGICA DO SORTEIO DE PALAVRAS ////////////////
+    const nomes = ['João', 'Maria', 'Antonio', 'Joana', 'Marcos'];
+     const frutas = ['Melancia', 'Uva', 'Pera', 'Banana', 'Morango'];
+     const carros = ['Fusca', 'Camaro', 'Ferrari', 'Corolla', 'Celta'];
+     const times = ['Flamengo', 'Corinthians', 'Palmeiras', 'Vasco', 'Barcelona'];
+     const paises = ['Brasil', 'Holanda', 'Colombia', 'Argentina', 'Italia'];
+     const todos = nomes.concat(frutas, carros, times, paises);
+     const opc = [0, 1, 2, 3, 4, 5]
+     
+        categoria = prompt(`ESCOLHA A CATEGORIA QUE DESEJA JOGAR:
+0 = TODOS
+1 = NOMES
+2 = FRUTAS
+3 = CARROS
+4 = TIMES
+5 = PAÍSES`)
+        categoria = Number(categoria)
+        categoria = opc.indexOf(categoria)
+
+        while(categoria == -1){
+                categoria = prompt(`Digite um valor válido:
+0 = TODOS
+1 = NOMES
+2 = FRUTAS
+3 = CARROS
+4 = TIMES
+5 = PAÍSES
+                ` )
+                categoria = Number(categoria)
+                categoria = opc.indexOf(categoria)
+                
+            }
+
+       
+        if(opc.includes(categoria)){
+            if(categoria == 0){
+                categoria = todos
+            }else if(categoria == 1){
+                categoria = nomes
+            }
+            else if(categoria == 2){
+                categoria = frutas
+            }
+            else if(categoria == 3){
+                categoria = carros
+            }
+            else if(categoria == 4){
+                categoria = times
+            }
+            else if(categoria == 5){
+                categoria = paises
+            }
+        }
+
+    var palavra_sort = categoria[Math.ceil(Math.random() * (categoria.length - 1))];
+       
+    
+
+    //////////////////FIM DA LÓGICA DO SORTEIO DE PALAVRAS ////////////////
+
+
+       palavra = palavra_sort.toUpperCase()
+       arr_palavra = palavra.split('')
+       palavra_final=[]
+       palpites = []
+       let_repetidas = []
+       vidas = 7
+       cont = 0
+       
+
+       while (cont < arr_palavra.length){// CRIAR OS ESPAÇOS REFERENTES A QUANTIDADE DE LETRAS
+            letra = '_'
+          
+           palavra_final[cont] = letra
+
+           cont++;           
+       }
+       
+       while(palavra_final.includes('_')) { //TESTAR E SUBSTITUIR OS ESPAÇOS POR LETRAS
+        let_dig = prompt (`JOGO DA FORCA. A palavra tem ${palavra.length} letras.
+Digite uma letra ou a palavra inteira se souber: ${palavra_final}
+Seu(s) palpite(s): ${palpites}
+${forca(vidas)}
+        `).toUpperCase()
+        
+        
+           while(palpites.includes(let_dig) || (let_dig == "" || let_dig == " ")){
+            if(parseFloat(let_dig)){
+                let_dig = prompt(`O número "${let_dig}" já foi digitado ou é inválido!!! Tente uma letra:
+${forca(vidas)}                 
+`).toUpperCase()
+               }else{
+                let_dig = prompt(`A letra "${let_dig}" já foi digitada digitada ou é inválida!!! Tente outra letra: 
+${forca(vidas)}`).toUpperCase()
+               }
+               
+               
+               
+           }
+           
+           palpites.push(let_dig) 
+           if(let_dig.length > 1 && let_dig==palavra){
+                alert(`PARABÉNS!!! VOCÊ ACERTOU A PALAVRA: ${palavra}`)
+                break
+            }else if(let_dig.length > 1 && let_dig!=palavra){
+                alert(`GAME OVER!!! A FORCA TE PEGOU. RESPOSTA: ${palavra}`)
+                break
+            }else if(arr_palavra.includes(let_dig)){
+                idx = arr_palavra.indexOf(let_dig)
+                while(idx != -1){
+                    let_repetidas.push(idx)
+                    palavra_final[idx] = let_dig
+                    idx = arr_palavra.indexOf(let_dig, idx +1)
+                }                               
+               
+                posição = idx + 1
+                alert(`TEM ${let_repetidas.length} letra(s) "${let_dig}" na palavra: ${palavra_final}
+                
+Seu(s) palpite(s): ${palpites}
+${forca(vidas)}
+                `)
+                let_repetidas = []
+            }else{
+                vidas--;
+                if(parseFloat(let_dig)){
+                    alert(`NÂO tem o número "${let_dig}" na palavra: ${palavra_final}
+
+Seu(s) palpite(s): ${palpites} 
+${forca(vidas)}`)
+                }else{
+                    alert(`NÂO tem a letra "${let_dig}" na palavra: ${palavra_final}
+
+Seu(s) palpite(s): ${palpites} 
+${forca(vidas)}`)
+                }
+                
+                
+
+                if(vidas == 0){
+                    alert(`SUAS VIDAS ACABARAM...GAME OVER!!! 
+A FORCA TE PEGOU. RESPOSTA: ${palavra}`)
+                    break
+                }
+                
+            } 
+        
+        
+       }
+       if (palavra_final.indexOf('_') === -1){
+                alert(`PARABÉNS!!! VOCÊ ACERTOU A PALAVRA: ${palavra}`)                
+       }
+
+       
+    continuar = prompt(`QUER JOGAR NOVAMENTE?
+    CLIQUE EM "OK" PARA CONTINUAR!
+    CLIQUE EM "CANCELAR" PARA FINALIZAR!`)
+    if(continuar != null){
+        alert('VOCE ESCOLHEU "JOGAR NOVAMENTE!!!"')
+        continue
+            
+    }else{
+        alert('VOCE ESCOLHEU "SAIR DO JOGO!"')  
+        break     
+            
+    }
+}     
+ ///////////////FIM LÓGICA DO JOGO///////////////////
+       
+
+   </script>
+    
+</body>
+</html>
