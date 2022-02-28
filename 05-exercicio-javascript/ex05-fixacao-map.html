@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>05 Exercício Fixação de Javascript</title>
+    <style>
+        body{
+            margin-left: 5px;
+        }
+        hr{
+            border: 2px solid blue;
+        }
+        div#resp_map{
+            margin-top: 10px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício de fixação 5 - Javascript</h1>
+    <hr>
+    <div>
+        <p style="color: blue;">Map -array_obj = [
+            <br>{nome: 'Joana', idade: 23},
+            <br>{nome: 'João', idade: 13},
+            <br>{nome: 'Lauro', idade: 42},
+            <br>{nome: 'Janine', idade: 10},
+            <br>{nome: 'Sara', idade: 18},
+            <br>{nome: 'Melissa', idade: 8},
+            <br>{nome: 'Ana', idade: 22},
+            <br>{nome: 'Luana', idade: 33},
+            <br>{nome: 'Amanda', idade: 15},
+        <br>]</p>
+
+        <h5 >Map - Digite um número inteiro e escolha uma operação:</h5>
+        <p >A função "map" percorre todo o array <br>fazendo a mudança e retorna um novo array com as mudanças.</p>
+        <input type="number" id="input_map" min="1" class="input_map col-2" placeholder="Nº int">
+        <select name="operacao" id="operacao">
+            <option value="Somar">Somar</option>
+            <option value="Subtrair">Subtrair</option>            
+        </select>
+        <input type="button" class="btn btn-outline-primary"  value="Map" onclick="map()">
+        <div id="resp_map">
+
+        </div>
+        <hr>
+    </div>
+    <script>
+           
+           const array_obj = [
+            {nome: 'Joana', idade: 23},
+            {nome: 'João', idade: 13},
+            {nome: 'Lauro', idade: 42},
+            {nome: 'Janine', idade: 10},
+            {nome: 'Sara', idade: 18},
+            {nome: 'Melissa', idade: 8},
+            {nome: 'Ana', idade: 22},
+            {nome: 'Luana', idade: 33},
+            {nome: 'Amanda', idade: 15}
+        ]
+        
+        
+        let resp_map = document.getElementById('resp_map')
+        let num_map = document.getElementById('input_map')
+        let operacao = document.getElementById('operacao')
+        let cont = 0
+
+        //const array_map = array_obj.map((i) => i.idade + 4)
+
+        //console.log(array_map)
+
+        function map(){
+            n_map = Number(num_map.value)
+            sel = operacao.value
+            resp_map.innerHTML+= `No exemplo abaixo, fez se "${sel}" o valor "${n_map}" a idade de todos.<br>`
+            if(n_map == ""){
+               resp_map.innerHTML = '<h3 style="color: red;">Digite um número válido.</h3>'
+               
+           }else if(sel == 'Somar'){
+                    const array_idade_map = array_obj.map((i) => i.idade + n_map)
+                    const array_nome_map = array_obj.map((n) => n.nome)
+                    while(cont < array_nome_map.length){
+                        resp_map.innerHTML += `Nome: ${array_nome_map[cont]} - Nova Idade: ${array_idade_map[cont]}<br>`                    
+                        cont++;
+                    }
+                        
+           }else if(sel == 'Subtrair'){
+            const array_idade_map = array_obj.map((i) => i.idade - n_map)
+                    const array_nome_map = array_obj.map((n) => n.nome)
+                    while(cont < array_nome_map.length){
+                        resp_map.innerHTML += `Nome: ${array_nome_map[cont]} - Nova Idade: ${array_idade_map[cont]}<br>`                    
+                        cont++;
+                    } 
+           }
+           
+        }
+
+       
+    </script>
+   
+    
+    
+</body>
+</html>

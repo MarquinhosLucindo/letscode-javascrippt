@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>05 Exercício Fixação de Javascript</title>
+    <style>
+        body{
+            margin-left: 5px;
+        }
+        hr{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício de ficação 5 - Javascript</h1>
+    <hr>
+    <div>
+        <p>Filter - array_obj = [<br>{nome: 'Joana', idade: 23},
+            <br>{nome: 'João', idade: 13},
+            <br>{nome: 'Lauro', idade: 42},
+            <br>{nome: 'Janine', idade: 10},
+            <br>{nome: 'Sara', idade: 18},
+            <br>{nome: 'Melissa', idade: 8},
+            <br>{nome: 'Ana', idade: 22},
+            <br>{nome: 'Luana', idade: 33},
+            <br>{nome: 'Amanda', idade: 15},
+        <br>]</p>
+        <p>Filter é usado para aplicar um filtro. Escolha um filtro e digite a idade:</p>        
+        <select name="selecao" id="selecao">
+            <option value="Maior">Maior</option>
+            <option value="MaiorIgual">Maior Igual</option>
+            <option value="Menor">Menor</option>
+            <option value="MenorIgual">Menor Igual</option>           
+        </select>
+        <input type="number" id="input_filter" min="1" class="input_filter col-2" placeholder="Idade">
+        <input type="button" class="btn btn-outline-primary" value="Filter" onclick="filter()">
+        <div id="resp_filter">
+
+        </div>
+        <hr>
+    </div>
+    <script>
+        const array_obj = [{nome: 'Joana', idade: 23},
+            {nome: 'João', idade: 13},
+            {nome: 'Lauro', idade: 42},
+            {nome: 'Janine', idade: 10},
+            {nome: 'Sara', idade: 18},
+            {nome: 'Melissa', idade: 8},
+            {nome: 'Ana', idade: 22},
+            {nome: 'Luana', idade: 33},
+            {nome: 'Amanda', idade: 15}
+        ]
+        let resp_filter = document.getElementById('resp_filter')
+        let num_filter = document.getElementById('input_filter')
+        let selecao = document.getElementById('selecao')
+        //const array_filtrado = array_obj.filter((elem) =>elem.nome[0] == 'J')
+        let cont = 0
+        //nome_filtrado = array_filtrado.map((n) => " "+n.nome)         
+        //idade_filtrada = array_filtrado.map((i) => " "+i.idade)
+
+              
+
+
+        //console.log(numeros_repetidos)
+        //console.log(numeros_unicos)
+        function filter(){
+            
+            num_f = Number(num_filter.value)
+            sele = selecao.value
+            resp_filter.innerHTML +=`Todos com idade "${sele}"  "${num_f}" anos.<br>`    
+            if(sele == "Maior"){
+                const array_filtrado = array_obj.filter((elem) =>elem.idade > num_f)
+                var nome_filtrado = array_filtrado.map((n) => " "+n.nome)         
+                var idade_filtrada = array_filtrado.map((i) => " "+i.idade)
+                while(cont < array_filtrado.length){
+                    resp_filter.innerHTML += `Nome: ${nome_filtrado[cont]} - Idade: ${idade_filtrada[cont]}<br>`
+                    cont++;
+                }
+
+            }else if(sele == "MaiorIgual"){
+                const array_filtrado = array_obj.filter((elem) =>elem.idade >= num_f)
+                var nome_filtrado = array_filtrado.map((n) => " "+n.nome)         
+                var idade_filtrada = array_filtrado.map((i) => " "+i.idade)
+                while(cont < array_filtrado.length){
+                    resp_filter.innerHTML += `Nome: ${nome_filtrado[cont]} - Idade: ${idade_filtrada[cont]}<br>`
+                    cont++;
+                }
+                    
+            }else if(sele == "Menor"){
+                const array_filtrado = array_obj.filter((elem) =>elem.idade < num_f)
+                var nome_filtrado = array_filtrado.map((n) => " "+n.nome)         
+                var idade_filtrada = array_filtrado.map((i) => " "+i.idade)
+                while(cont < array_filtrado.length){
+                    resp_filter.innerHTML += `Nome: ${nome_filtrado[cont]} - Idade: ${idade_filtrada[cont]}<br>`
+                    cont++;
+                }
+                    
+            }else if(sele == "MenorIgual"){
+                const array_filtrado = array_obj.filter((elem) =>elem.idade <= num_f)
+                var nome_filtrado = array_filtrado.map((n) => " "+n.nome)         
+                var idade_filtrada = array_filtrado.map((i) => " "+i.idade)
+                while(cont < array_filtrado.length){
+                    resp_filter.innerHTML += `Nome: ${nome_filtrado[cont]} - Idade: ${idade_filtrada[cont]}<br>`
+                    cont++;
+                }
+                    
+            }
+            
+        }
+        //console.log(resp_filter)
+    </script>
+   
+    
+    
+</body>
+</html>

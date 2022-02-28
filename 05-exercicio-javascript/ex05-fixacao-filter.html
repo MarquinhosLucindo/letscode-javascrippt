@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>05 Exercício Fixação de Javascript</title>
+    <style>
+        body{
+            margin-left: 5px;
+        }
+        hr{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício de ficação 5 - Javascript</h1>
+    <hr>
+    <div>
+        <h2>Filter - array_original = [2, 3, 4, 5, 4, 12, 19, 7, 2, 5]</h2>
+        <p>Filter é usado para aplicar um filtro. Digite um número e escolha o filtro. </p>
+        <input type="number" id="input_filter" min="1" class="input_filter col-2" placeholder="Nº Int">
+        <select name="selecao" id="selecao">
+            <option value="Maior">Maior</option>
+            <option value="MaiorIgual">Maior Igual</option>
+            <option value="Menor">Menor</option>
+            <option value="MenorIgual">Menor Igual</option>           
+        </select>
+        <input type="button" class="btn btn-outline-primary" value="Filter" onclick="filter()">
+        <div id="resp_filter">
+
+        </div>
+        <hr>
+    </div>
+    <script>
+        let resp_filter = document.getElementById('resp_filter')
+        let num_filter = document.getElementById('input_filter')
+        let selecao = document.getElementById('selecao')
+        const array_completo = [2, 3, 4, 5, 4, 12, 19, 7, 2, 5]
+        
+        //console.log(numeros_repetidos)
+        //console.log(numeros_unicos)
+        function filter(){
+            num_f = Number(num_filter.value)
+            sele = selecao.value
+           if(sele == "Maior"){
+            const array_filtrado = array_completo.filter((elem) =>elem > num_f)
+           resp_filter.innerHTML = `Foi filtrado todo valor "${sele}" que "${num_f}" : [${array_filtrado}]`
+           }else if(sele == "MaiorIgual"){
+            const array_filtrado = array_completo.filter((elem) =>elem >= num_f)
+            resp_filter.innerHTML = `Foi filtrado todo valor "${sele}" que "${num_f}" : [${array_filtrado}]`
+           }else if(sele == "Menor"){
+            const array_filtrado = array_completo.filter((elem) =>elem < num_f)
+            resp_filter.innerHTML = `Foi filtrado todo valor "${sele}" que "${num_f}" : [${array_filtrado}]`
+           }else if(sele == "MenorIgual"){
+            const array_filtrado = array_completo.filter((elem) =>elem <= num_f)
+            resp_filter.innerHTML = `Foi filtrado todo valor "${sele}" que "${num_f}" : [${array_filtrado}]`
+           }           
+            
+        }
+        //console.log(resp_filter)
+    </script>
+   
+    
+    
+</body>
+</html>
