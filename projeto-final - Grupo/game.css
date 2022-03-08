@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "hangman";
+  src: url("./assets/font/DK\ Hangman's\ Delight.otf");
+}
+
+/* RESET PADRÃO */
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+}
+
+#placar {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  margin-right: 180px;
+  margin-bottom: 70px;
+}
+
+#lifes {
+  color: white;
+}
+
+#play-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: hangman;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 3px 5px rgb(74 36 75);
+}
+
+#category {
+  color: white;
+}
+
+#forca-image {
+  width: 150px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#sorted-word {
+  color: white;
+}
+
+.letter {
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 12px;
+  color: white;
+  word-spacing: 5px;
+  text-align: center;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  padding: 3px;
+  margin-bottom: 30px;
+}
+
+#keyboard {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.keys {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.keys button {
+  width: 25px;
+  height: 25px;
+  margin: 1px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.keys button:hover {
+  transform: scale(1.2);
+}
+
+#replay {
+  width: 25px;
+  height: 25px;
+  margin: 1px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: rgb(74 36 75);
+  cursor: pointer;
+}
+
+#img-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+
+  body {
+    background-image: url('./assets/images/subir.gif');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+  }
+
+  #play-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  h1 {
+    font-size: 40px;
+    font-family: hangman;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 3px 5px rgb(74 36 75);
+  }
+  
+  #category {
+    color: white;
+  }
+  
+  #forca-image {
+    width: 150px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  #sorted-word {
+    color: white;
+  }
+  
+  .letter {
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 12px;
+    color: white;
+    word-spacing: 5px;
+    text-align: center;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    padding: 3px;
+    margin-bottom: 30px;
+  }
+  
+  #keyboard {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .keys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+  }
+  
+  .keys button {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .keys button:hover {
+    transform: scale(1.2);
+  }
+  
+  #replay {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(74 36 75);
+    cursor: pointer;
+  }
+  
+  #img-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}

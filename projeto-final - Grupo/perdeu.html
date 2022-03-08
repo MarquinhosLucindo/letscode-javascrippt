@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="perdeu.css">
+    <title>Jogo da Forca 2.0 - Javascript</title>
+  </head>
+  <body>
+
+    <div class="container">
+    <h1>GAME OVER!!!</h1>
+    <h1>WOULD YOU LIKE TO PLAY AGAIN?</h1>
+
+    <div class="buttons">
+    <input type="button" id="sim" value="YES" onclick="jogar()" />
+
+    <input type="button" id="nao1" value="NO" onclick="naojogar()" />
+    </div>
+
+  </div>
+
+    <script>
+      sim = document.getElementById("sim").value;
+      nao = document.getElementById("nao1").value;
+      life = 0;
+
+      function jogar() {
+        jogar = sim;
+        if (jogar == "YES") {
+          window.location.href = "game.html";
+        }
+      }
+      function naojogar() {
+        jogar = nao;
+        if (jogar == "NO") {
+          window.location.href = "home.html";
+        }
+      }
+      function mudarImg(life) {
+        //MOSTRAR IMAGEM EM ETAPAS DA FORCA
+        if (life == 0) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 1) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 2) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 3) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 4) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 5) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        } else if (life == 6) {
+          document.getElementById("arvore").src = "./assets/images/forca6.jpg";
+        }
+      }
+      life1 = localStorage.getItem(life);
+      console.log(life1);
+
+      mudarImg(life1);
+    </script>
+  </body>
+</html>

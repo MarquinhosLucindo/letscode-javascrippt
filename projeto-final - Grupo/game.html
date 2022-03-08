@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="game.css" />
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <div id="play-container">
+      <div id="placar">
+        <div id="lifes"></div>
+      </div>
+
+      <h1>HANGMAN</h1>
+
+      <div id="category"></div>
+
+      <div id="forca">
+        <img id="forca-image" src="" />
+      </div>
+
+      <div id="sorted-word"></div>
+
+      <div id="keyboard">
+        <div class="keys">
+          <button id="key-A" onclick="trocar('A')">A</button>
+          <button id="key-B" onclick="trocar('B')">B</button>
+          <button id="key-C" onclick="trocar('C')">C</button>
+          <button id="key-D" onclick="trocar('D')">D</button>
+          <button id="key-E" onclick="trocar('E')">E</button>
+          <button id="key-F" onclick="trocar('F')">F</button>
+          <button id="key-G" onclick="trocar('G')">G</button>
+          <button id="key-H" onclick="trocar('H')">H</button>
+          <button id="key-I" onclick="trocar('I')">I</button>
+        </div>
+
+        <div class="keys">
+          <button id="key-J" onclick="trocar('J')">J</button>
+          <button id="key-K" onclick="trocar('K')">K</button>
+          <button id="key-L" onclick="trocar('L')">L</button>
+          <button id="key-M" onclick="trocar('M')">M</button>
+          <button id="key-N" onclick="trocar('N')">N</button>
+          <button id="key-O" onclick="trocar('O')">O</button>
+          <button id="key-P" onclick="trocar('P')">P</button>
+          <button id="key-Q" onclick="trocar('Q')">Q</button>
+          <button id="key-R" onclick="trocar('R')">R</button>
+        </div>
+
+        <div class="keys">
+          <button id="key-S" onclick="trocar('S')">S</button>
+          <button id="key-T" onclick="trocar('T')">T</button>
+          <button id="key-U" onclick="trocar('U')">U</button>
+          <button id="key-V" onclick="trocar('V')">V</button>
+          <button id="key-W" onclick="trocar('W')">W</button>
+          <button id="key-X" onclick="trocar('X')">X</button>
+          <button id="key-Y" onclick="trocar('Y')">Y</button>
+          <button id="key-Z" onclick="trocar('Z')">Z</button>
+          <button id="replay" onclick="replay()">
+            <img
+              id="img-button"
+              src="./assets/images/jack-button.jpg"
+              width="12px"
+              height="12px"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>

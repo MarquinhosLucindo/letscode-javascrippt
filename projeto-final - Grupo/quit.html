@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+</head>
+<body>
+
+    <style>
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+h1{
+    color: white;
+}
+
+#quit-image {
+    width: 300px;
+}
+
+#quit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#the-end {
+    display: flex;
+    color: white;  
+    font-size: 20px;
+}
+
+
+
+@media (min-width: 480px){
+
+    #quit-image {
+        width: 400px;
+    }
+
+    #the-end {
+        font-size: 30px;
+    }
+
+}
+
+@media (min-width: 720px){
+
+    #quit-image {
+        width: 600px;
+    }
+
+    #the-end {
+        font-size: 40px;
+    }
+   
+    }
+@media (min-width: 900px){
+
+
+    #quit-image {
+        width: 700px;
+    }
+
+    #the-end {
+        font-size: 60px;
+    }
+
+    }
+
+
+    </style>
+
+
+    <div id="quit-button">
+    <img id="quit-image" src="./assets/images/sair.gif">
+    </div>
+
+    <h1 id="the-end">THE END</h1>
+</body>
+</html>

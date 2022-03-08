@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'hangman';
+    src: url('./assets/font/DK\ Hangman\'s\ Delight.otf')
+  }
+
+/* RESET PADRÃO */
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    list-style-type: none;
+}
+
+.hangman-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./assets/images/dc.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    background-size: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    margin-top: 100px;
+}
+
+h1 {
+    font-family: 'hangman';
+    word-spacing: 5px;
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+#hangman-home-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    margin-top: 25px;
+    background-color: #504f4f;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-style {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    width: 130px;
+    margin: 6px;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-bottom: 2.6px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 1px rgb(70 70 70);
+    transition: box-shadow 0.3s ease, transform 0.3s;
+}
+
+.button-style:active {
+    box-shadow: 0 0 0 0 rgb(70, 70, 70), inset 3px 3px 3px rgb(70, 70, 70);
+    transform: translate(3px, 3px);
+
+} 
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 480px){
+    h1 {
+        font-size: 70px;
+        margin-bottom: 50px;
+    }
+
+    .title-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+    }
+    
+    #hangman-home-image {
+        margin: 35px;
+    }
+    
+    .button-style {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        padding: 5px;
+        width: 150px;
+        margin: 6px;
+        font-size: 15px;
+        margin-bottom: 2.6px;
+    }
+
+    
+}
+@media (min-width: 720px){
+
+    h1 {
+        font-size: 80px;
+        margin-bottom: 50px;
+    }
+
+    .title-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        margin-left: 250px;
+        margin-top: 100px;
+    }
+    
+    #hangman-home-image {
+        margin: 50px;
+        margin-top: 100px;
+        margin-right: 330px;
+    }
+    
+    img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .button-style {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        padding: 5px;
+        width: 180px;
+        margin: 6px;
+        font-size: 18px;
+        margin-bottom: 2.6px;
+    }
+
+    .hangman-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-count: 2;
+        background-size: 600px 250px;
+    }
+
+}
+@media (min-width: 900px){
+
+    body {
+        background-image: url('./assets/images/dc.gif');
+        background-repeat: no-repeat;
+        background-color: black;
+    }
+
+    .title-buttons {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+        margin-left: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .hangman-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-count: 2;
+        background-size: 1020px 450px;
+    }
+
+
+    h1 {
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        color: white;
+        font-size: 150px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    #hangman-home-image {
+        margin-top: 90px;
+        margin-right: 250px;
+    }
+    
+    img {
+        width: 420px;
+        height: 420px;
+    }
+    
+    .button-style {
+        margin-bottom: 20px;
+        padding: 5px;
+        width: 300px;
+        font-size: 25px;
+    }
+
+  
+}

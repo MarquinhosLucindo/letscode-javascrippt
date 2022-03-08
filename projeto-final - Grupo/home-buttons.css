@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'hangman';
+    src: url('./assets/font/DK\ Hangman\'s\ Delight.otf')
+  }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./assets/images/question.gif');
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+#quit-image {
+    width: 300px;
+}
+
+#quit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#the-end {
+    display: flex;
+    color: white;  
+    font-size: 20px;
+}
+
+
+#instructions-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: hangman;
+    background-color: rgba(0, 0, 0, 0.712);
+}
+
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    border: 1px solid white;
+    width: 200px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.712);
+}
+
+@media (min-width: 480px){
+    #instructions-title {
+        font-size: 50px;
+    }
+    
+    p{
+        width: 350px;
+        padding: 15px;
+    }
+
+    #quit-image {
+        width: 400px;
+    }
+
+    #the-end {
+        font-size: 30px;
+    }
+
+}
+
+@media (min-width: 720px){
+    #instructions-title {
+        font-size: 60px;
+    }
+    
+    p{
+        width: 600px;
+        padding: 15px;
+    }
+
+    #quit-image {
+        width: 600px;
+    }
+
+    #the-end {
+        font-size: 40px;
+    }
+   
+    }
+@media (min-width: 900px){
+    #instructions-title {
+        font-size: 80px;
+    }
+    
+    p{
+        width: 800px;
+        padding: 15px;
+    }
+
+    #quit-image {
+        width: 700px;
+    }
+
+    #the-end {
+        font-size: 60px;
+    }
+
+    }
